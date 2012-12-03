@@ -18,19 +18,15 @@ void drawBase(c) {
   String fill;
   window.console.log('sin: $sin, cos: $cos');
   
-  /*var map = ['nbbbbbbbbn',
-             'nbccccccbn',
+  var map = ['nnbbbbbbbb',
+             'nbbbbbbbbb',
              'bccccccccb',
              'bccccccccb',
              'bccccccccb',
              'bccccccccb',
-             'nbbbbbbbbn'
-             ];*/
-  var map = ['bcb',
-             'bcb',
-             'bcb'
+             'bbbbbbbbbb'
              ];
-
+  
   for (num j = 0; j < map.length; j++) {
     for (num i = 0; i < map[j].length; i++) {
       if (map[j][i] == 'b') {
@@ -41,46 +37,19 @@ void drawBase(c) {
         continue;
       }
       if (j % 2 == 0) {
-        x = cos +
+        x = cos * 5 +
             i * 3 * size;
-        y = j * sin * 2;
+        y = (j / 2) * sin * 2;
       } else {
-        x = cos * 4 +
+        x = 2 * cos +
             i * 3 * size;
+        
         y = sin +
-            j * 2 * sin;
+            (j / 2).floor() * 2 * sin;
       }
       drawHexagon(ctx, x, y, size, fill);
     }
   }
-  /*
-  for (num i = 0; i < 8; i++) {
-    for (num j = 0; j < 17; j++) {
-      if (i < 1 || j < 1 || i > 6 || j > 15) {
-        fill = '#000000'; 
-      } else {
-        fill = '';
-      }
-      x = cos +
-          i * 3 * size;
-      y = j * sin * 2;
-      drawHexagon(ctx, x, y, size, fill);
-    }
-  }
-  for (num i = 0; i < 7; i++) {
-    for (num j = 0; j < 17; j++) {
-      if (j < 1 || i > 6 || j > 15) {
-        fill = '#000000'; 
-      } else {
-        fill = '';
-      }
-      x = cos * 4 +
-          i * 3 * size;
-      y = sin +
-          j * 2 * sin;
-      drawHexagon(ctx, x, y, size, fill);
-    }
-  }*/
   ctx.stroke();
 }
 
